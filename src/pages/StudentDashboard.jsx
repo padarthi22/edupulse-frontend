@@ -5,7 +5,7 @@ import { api } from '../lib/api.js';
 const Pill = ({ children, muted }) => <span className={`pill ${muted ? 'pill-muted' : ''}`}>{children}</span>;
 
 const HistoryChart = ({ rows }) => {
-  if (!rows || rows.length === 0) return <p className="text-sm text-muted">No predictions yet.</p>;
+  if (!rows || rows.length === 0) return <p className="text-sm muted">No predictions yet.</p>;
   const W = 320, H = 80;
   const ys = rows.map((r) => 1 - (r.riskScore ?? 0));
   const max = rows.length - 1 || 1;
@@ -44,11 +44,11 @@ export default function StudentDashboard() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
       <div className="card flex items-start justify-between gap-4 flex-wrap">
         <div>
           <h1>Welcome, {user?.name}</h1>
-          <p className="text-sm text-muted">These signals are decision-support, not a label. Talk to your mentor if anything feels off.</p>
+          <p className="text-sm muted">These signals are decision-support, not a label. Talk to your mentor if anything feels off.</p>
         </div>
         <button onClick={rerun} className="btn" disabled={busy}>{busy ? 'Recomputing…' : 'Recompute my check-in'}</button>
       </div>
@@ -57,24 +57,24 @@ export default function StudentDashboard() {
         <div className="card">
           <p className="label">Current risk band</p>
           <div className="mt-1"><Pill muted={!latest}>{latest?.riskBand || '—'}</Pill></div>
-          {latest?.riskScore != null && <p className="text-sm text-muted mt-1">Score {Math.round(latest.riskScore * 100)}%</p>}
+          {latest?.riskScore != null && <p className="text-sm muted mt-1">Score {Math.round(latest.riskScore * 100)}%</p>}
         </div>
         <div className="card">
           <p className="label">Predicted grade band</p>
           <p className="text-xl font-semibold mt-1">{latest?.predictedGradeBand || '—'}</p>
-          <p className="text-sm text-muted">Confidence: {latest?.confidence || '—'}</p>
+          <p className="text-sm muted">Confidence: {latest?.confidence || '—'}</p>
         </div>
         <div className="card">
           <p className="label">Pass probability</p>
           <p className="text-xl font-semibold mt-1">{latest ? `${Math.round(latest.passProbability * 100)}%` : '—'}</p>
-          <p className="text-sm text-muted">{latest?.computedAt ? new Date(latest.computedAt).toLocaleString() : 'never'}</p>
+          <p className="text-sm muted">{latest?.computedAt ? new Date(latest.computedAt).toLocaleString() : 'never'}</p>
         </div>
       </section>
 
       <section className="card">
         <h2>Recent trend</h2>
         <HistoryChart rows={history} />
-        <p className="text-xs text-muted mt-1">Higher line is better. Each point is one weekly check-in.</p>
+        <p className="text-xs muted mt-1">Higher line is better. Each point is one weekly check-in.</p>
       </section>
 
       {latest?.explanation && (
@@ -86,7 +86,7 @@ export default function StudentDashboard() {
 
       <section className="card">
         <h2>Study buddy</h2>
-        <p className="text-sm text-muted">Ask about a topic, plan your week, or talk through a stuck problem.</p>
+        <p className="text-sm muted">Ask about a topic, plan your week, or talk through a stuck problem.</p>
         <ChatBox studentId={user?.studentProfile} />
       </section>
     </div>
@@ -116,7 +116,7 @@ function ChatBox({ studentId }) {
   return (
     <div className="space-y-2 mt-3">
       <div className="border border-line rounded-md p-3 h-64 overflow-auto bg-paper">
-        {messages.length === 0 && <p className="text-sm text-muted">No messages yet. Say hello.</p>}
+        {messages.length === 0 && <p className="text-sm muted">No messages yet. Say hello.</p>}
         {messages.map((m, i) => (
           <div key={i} className={`mb-2 ${m.role === 'user' ? 'text-right' : ''}`}>
             <div className={`inline-block rounded-md px-3 py-2 text-sm ${m.role === 'user' ? 'bg-ink text-white' : 'bg-white border border-line'}`}>

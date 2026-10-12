@@ -11,12 +11,12 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
       <div className="card"><h1>Admin analytics</h1></div>
 
       <section className="card">
         <h2>Cohort fairness</h2>
-        {!fairness && <p className="text-sm text-muted">Loading…</p>}
+        {!fairness && <p className="text-sm muted">Loading…</p>}
         {fairness && Object.entries(fairness).map(([key, groups]) => (
           <div key={key} className="mt-4">
             <p className="label">{key}</p>
@@ -35,12 +35,12 @@ export default function AdminDashboard() {
             </table>
           </div>
         ))}
-        <p className="text-xs text-muted mt-4">Look for large High-rate differences across groups — that&apos;s the bias signal.</p>
+        <p className="text-xs muted mt-4">Look for large High-rate differences across groups — that&apos;s the bias signal.</p>
       </section>
 
       <section className="card">
         <h2>Model + AI</h2>
-        {!metrics && <p className="text-sm text-muted">Loading…</p>}
+        {!metrics && <p className="text-sm muted">Loading…</p>}
         {metrics && (
           <div className="grid-cards mt-2 text-sm">
             <div><p className="label">Trained rows</p><p className="text-xl font-semibold">{metrics.trainedRows ?? '—'}</p></div>

@@ -35,11 +35,11 @@ export default function TeacherDashboard() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
       <div className="card flex flex-wrap items-center gap-3">
         <div>
           <h1>Teacher dashboard</h1>
-          <p className="text-sm text-muted">Pick a class, see top risks, and ingest signals.</p>
+          <p className="text-sm muted">Pick a class, see top risks, and ingest signals.</p>
         </div>
         <div className="ml-auto">
           <select className="input w-40" value={classId} onChange={(e) => setClassId(e.target.value)}>
@@ -87,7 +87,7 @@ export default function TeacherDashboard() {
 
       <section className="card">
         <h2>Ingest a CSV</h2>
-        <p className="text-sm text-muted">Drop a CSV with header row matching the schema in the README.</p>
+        <p className="text-sm muted">Drop a CSV with header row matching the schema in the README.</p>
         <div className="row mt-3 flex-wrap">
           <select className="input w-44" value={ingest.kind} onChange={(e) => setIngest({ ...ingest, kind: e.target.value })}>
             <option value="attendance">Attendance</option>

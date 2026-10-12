@@ -24,7 +24,7 @@ export default function Login() {
   return (
     <div className="max-w-md mx-auto card">
       <h1>Sign in</h1>
-      <p className="text-sm text-muted">Use the seeded credentials or your own.</p>
+      <p className="text-sm muted">Use the seeded credentials or your own.</p>
       <form onSubmit={submit} className="mt-4 space-y-3">
         <div><label className="label">Email</label>
           <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} required /></div>
@@ -33,7 +33,7 @@ export default function Login() {
         <button disabled={busy} className="btn btn-primary w-full justify-center">{busy ? 'Signing in…' : 'Sign in'}</button>
         {err && <p className="text-sm">{err}</p>}
       </form>
-      <p className="text-sm text-muted mt-3">No account? <Link to="/signup" className="underline">Create one</Link></p>
+      <p className="text-sm muted mt-3">No account? <Link to="/signup" className="underline">Create one</Link></p>
     </div>
   );
 }

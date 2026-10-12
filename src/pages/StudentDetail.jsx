@@ -55,11 +55,11 @@ export default function StudentDetail() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-10">
       <div className="card flex items-start justify-between flex-wrap gap-3">
         <div>
           <h1>Student detail</h1>
-          <p className="text-sm text-muted">Decision-support only. Use mentor judgement to act.</p>
+          <p className="text-sm muted">Decision-support only. Use mentor judgement to act.</p>
         </div>
         <button onClick={refreshAll} className="btn" disabled={busy}>{busy ? 'Working…' : 'Recompute'}</button>
       </div>
@@ -122,13 +122,13 @@ export default function StudentDetail() {
             </div>
           </div>
         ) : (
-          <p className="text-sm text-muted mt-2">Click Generate to draft a plan grounded on this student&apos;s signals.</p>
+          <p className="text-sm muted mt-2">Click Generate to draft a plan grounded on this student&apos;s signals.</p>
         )}
       </section>
 
       <section className="card">
         <h2>What-if simulator</h2>
-        <p className="text-sm text-muted">Adjust the inputs and see how the predicted risk shifts.</p>
+        <p className="text-sm muted">Adjust the inputs and see how the predicted risk shifts.</p>
         <div className="grid sm:grid-cols-2 gap-3 mt-3">
           <div>
             <label className="label">Attendance rate (delta, +0.1 = +10%)</label>
@@ -186,7 +186,7 @@ export default function StudentDetail() {
                 </td>
               </tr>
             ))}
-            {intv.length === 0 && <tr><td colSpan={6} className="py-2 text-muted">No interventions yet.</td></tr>}
+            {intv.length === 0 && <tr><td colSpan={6} className="py-2 muted">No interventions yet.</td></tr>}
           </tbody>
         </table>
       </section>

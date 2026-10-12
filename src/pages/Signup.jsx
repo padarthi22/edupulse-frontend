@@ -37,7 +37,7 @@ export default function Signup() {
   return (
     <div className="max-w-xl mx-auto card">
       <h1>Create an account</h1>
-      <p className="text-sm text-muted">Consent is required for AI features and wellbeing storage.</p>
+      <p className="text-sm muted">Consent is required for AI features and wellbeing storage.</p>
       <form onSubmit={submit} className="mt-4 space-y-3">
         <div className="grid sm:grid-cols-2 gap-3">
           <div><label className="label">Email</label><input className="input" value={form.email} onChange={set('email')} required /></div>
@@ -69,7 +69,7 @@ export default function Signup() {
         <button disabled={busy} className="btn btn-primary w-full justify-center">{busy ? 'Creating…' : 'Create account'}</button>
         {err && <p className="text-sm">{err}</p>}
       </form>
-      <p className="text-sm text-muted mt-3">Already have one? <Link to="/login" className="underline">Sign in</Link></p>
+      <p className="text-sm muted mt-3">Already have one? <Link to="/login" className="underline">Sign in</Link></p>
     </div>
   );
 }
