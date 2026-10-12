@@ -25,8 +25,8 @@
 }
 
 @layer components {
-  .card      { background:#FFFFFF; border:1px solid #DCD3C2; border-radius:14px; padding:1.4rem 1.5rem; }
-  .card-paper{ background:#EFE9DE; border:1px solid #DCD3C2; border-radius:14px; padding:1.4rem 1.5rem; }
+  .card      { background:#FFFFFF; border:1px solid #DCD3C2; border-radius:14px; padding:1.4rem 1.5rem; transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .2s ease; }
+  .card-paper{ background:#EFE9DE; border:1px solid #DCD3C2; border-radius:14px; padding:1.4rem 1.5rem; transition: transform .25s cubic-bezier(.2,.8,.2,1); }
   .hairline  { border-top: 1px solid #DCD3C2; }
   .muted     { color: #6B665A; }
   .text-ink  { color: #15130F; }   /* sentinel for tailwind-classed elements */

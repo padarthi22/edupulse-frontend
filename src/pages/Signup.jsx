@@ -20,13 +20,15 @@ export default function Signup() {
     e.preventDefault();
     setBusy(true); setErr(null);
     try {
+      // Backend expects an array (record's Set<String> is reconstructed by Jackson from JSON array).
+      const consent = [
+        ...(form.aiConsent ? ['ai_features'] : []),
+        ...(form.wellbeingConsent ? ['wellbeing'] : []),
+      ];
       const u = await signup({
         email: form.email, name: form.name, password: form.password, role: form.role,
         classId: form.classId || undefined, studentCode: form.studentCode || undefined,
-        consent: new Set([
-          ...(form.aiConsent ? ['ai_features'] : []),
-          ...(form.wellbeingConsent ? ['wellbeing'] : []),
-        ]),
+        consent,
       });
       nav(u.role === 'student' ? '/student' : u.role === 'admin' ? '/admin' : '/teacher');
     } catch (e) {
