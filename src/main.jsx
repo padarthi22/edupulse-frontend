@@ -20,7 +20,7 @@ function Guard({ children, roles }) {
   return children;
 }
 
-function roleHome(useAuth) {
+function roleHome() {
   const { user } = useAuth();
   if (!user) return null;
   if (user.role === 'student') return <Navigate to="/student" replace />;
@@ -30,7 +30,6 @@ function roleHome(useAuth) {
 }
 
 function Shell() {
-  const auth = useAuth();
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -39,7 +38,7 @@ function Shell() {
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/me" element={<Guard>{roleHome(auth)}</Guard>} />
+          <Route path="/me" element={<Guard>{roleHome()}</Guard>} />
           <Route path="/student" element={<Guard roles={['student']}><StudentDashboard /></Guard>} />
           <Route path="/teacher" element={<Guard roles={['teacher','admin']}><TeacherDashboard /></Guard>} />
           <Route path="/teacher/student/:id" element={<Guard roles={['teacher','admin']}><StudentDetail /></Guard>} />
